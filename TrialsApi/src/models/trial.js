@@ -4,16 +4,31 @@ const mongoose = require('mongoose'); //bring the mongoose package to our file
 
 //Create a model of how your collection should look like in order to read documents from the underlying MongoDb database 
 const Trial = mongoose.model('Trial', {
-  nct_id: {
-    type: String
+  country: {
+      type: [
+        {
+          country: String,
+          required: true
+        }
+      ]
+  }
+  ,
+  condition: {
+    type: [
+      {
+        cond_name: String,
+        required: true
+      }
+    ]
   },
   study_first_submitted: {
-    type: String,
-    required: true
+    type: String
   },
   last_update_submitted: {
-    type: String,
-    required: true
+    type: String
+  },
+  enrollment: {
+    type: Number
   }
 },
 'ClinicalTrialData')
