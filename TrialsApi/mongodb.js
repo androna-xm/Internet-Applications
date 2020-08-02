@@ -19,7 +19,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error,client) => {
     // db = reference to our db
     const db = client.db(databaseName)//arg = the name of db , created or not 
                                         
-   db.collection('ClinicalTrialData').find({}).toArray((error,user) => {
+   db.collection('ClinicalTrialData').find({'country.country': "United States"} , {'condition.cond_name': "Obesity"}).toArray((error,user) => {
     if(error) {
         return console.log('Unable to fetch ')
     }

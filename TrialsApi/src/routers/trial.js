@@ -23,7 +23,7 @@ router.get('/trials', async (req,res) => {
   }
 })
 
-router.get('/trials/:cond', async (req,res) => {
+router.get('/trials/condition/:cond', async (req,res) => {
   const condition = req.params.cond
   try {
     const trial = await Trial.find({'condition.cond_name': condition})
@@ -37,7 +37,7 @@ router.get('/trials/:cond', async (req,res) => {
 })
 
 
-router.get('/trials/:country', async (req,res) => {
+router.get('/trials/country/:country', async (req,res) => {
   const country = req.params.country
   try {
     const trial = await Trial.find({'country.country': country})
@@ -50,4 +50,29 @@ router.get('/trials/:country', async (req,res) => {
   }
 })
 
+//endpoint to seach trials by country and condition
+
+/*
+router.get('/trials/search', async (req,res) => {
+  try {
+    const trial = await Trial.findbyParams (req.body.country,req.body.condition) //new method findbyParams
+    res.send(trial)
+  }catch (e) {
+    res.status(400).send()
+  }
+})
+*/
+
+//URL: localhost:3000/trials/search2/?country=United States&condition=Cancer
+router.get('/trials/search2', async (req,res) => {
+  try {
+    const trial = await Trial.find({'country.country': req.query.country , 'condition.cond_name': req.query.condition})
+    if(!trial) {
+      return res.status(404).send()
+    }
+    res.send(trial)
+  } catch (e) {
+    res.status(500).send()
+  }
+})
 module.exports = router;
