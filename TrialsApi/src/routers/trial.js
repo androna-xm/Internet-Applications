@@ -14,48 +14,40 @@ router.get('/ClinicalTrialData',async (req,res) =>{
     res.json({message:err});
   }
 })*/
-router.get('/trials', (req,res) => {
-  Trial.find({}).then((Data) => { // bring everything
+router.get('/trials', async (req,res) => {
+  try{
+    const Data = await Trial.find({}) // bring everything
     res.send(Data)
-  }).catch((e) => {
-      res.status(500).send() //server's problem
-  })
+  } catch (e) {
+    res.status(500).send() //server's problem
+  }
 })
 
-router.get('/trials/:cond', (req,res) => {
+router.get('/trials/:cond', async (req,res) => {
   const condition = req.params.cond
-  Trial.find({'condition.cond_name': condition}).then((trial) => {
-      if(!trial) {
-          return res.status(404).send()
-      }
-      res.send(trial)
-  }).catch((e) => {
-      res.status(500).send()
-  })
+  try {
+    const trial = await Trial.find({'condition.cond_name': condition})
+    if(!trial) {
+      return res.status(404).send()
+    }
+    res.send(trial)
+  } catch (e) {
+    res.status(500).send()
+  }
 })
 
 
-router.get('/trials/:country', (req,res) => {
+router.get('/trials/:country', async (req,res) => {
   const country = req.params.country
-  Trial.find({'country.country': country}).then((trial) => {
-      if(!trial) {
-          return res.status(404).send()
-      }
-      res.send(trial)
-  }).catch((e) => {
-      res.status(500).send()
-  })
+  try {
+    const trial = await Trial.find({'country.country': country})
+    if(!trial) {
+      return res.status(404).send()
+    }
+    res.send(trial)
+  } catch (e) {
+    res.status(500).send()
+  }
 })
 
-
-router.get('/trials/search', (req,res) => {
-  Trial.find({'country.country':"United States"} , {'condition.cond_name': "Cancer"} ).then((trial) => {
-      if(!trial) {
-          return res.status(404).send()
-      }
-      res.send(trial)
-  }).catch((e) => {
-      res.status(500).send()
-  })
-})
 module.exports = router;
