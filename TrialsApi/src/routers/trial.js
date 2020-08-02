@@ -63,10 +63,11 @@ router.get('/trials/search', async (req,res) => {
 })
 */
 
+
 //URL: localhost:3000/trials/search2/?country=United States&condition=Cancer
 router.get('/trials/search2', async (req,res) => {
   try {
-    const trial = await Trial.find({'country.country': req.query.country , 'condition.cond_name': req.query.condition})
+    const trial = await Trial.find({'country.country': req.query.country , 'condition.cond_name': req.query.condition},'enrollment  study_first_submitted last_update_submitted')
     if(!trial) {
       return res.status(404).send()
     }

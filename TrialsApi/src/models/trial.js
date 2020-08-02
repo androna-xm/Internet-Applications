@@ -39,7 +39,7 @@ trialSchema.statics.findbyParams = async (country,condition) => {
     throw new Error('No clinical trials found!')
   }
   return trial
-}
+} 
 */
 
 const Trial = mongoose.model('Trial', trialSchema,'ClinicalTrialData')
