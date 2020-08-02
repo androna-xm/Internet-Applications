@@ -7,8 +7,7 @@ const Trial = mongoose.model('Trial', {
   country: {
       type: [
         {
-          country: String,
-          required: true
+          country: String
         }
       ]
   }
@@ -16,8 +15,7 @@ const Trial = mongoose.model('Trial', {
   condition: {
     type: [
       {
-        cond_name: String,
-        required: true
+        cond_name: String
       }
     ]
   },
