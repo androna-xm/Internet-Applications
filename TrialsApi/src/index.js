@@ -4,7 +4,7 @@ const Trial = require('./models/trial')
 const trialRouter = require('./routers/trial')
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 app.use(express.json()) //parse incomming json to an object  to easily use it and access request handlers
 app.use(trialRouter)   //register the router with our app 
@@ -16,5 +16,6 @@ app.use(trialRouter)   //register the router with our app
 app.listen(port, () => {
   console.log('Server is up on port ' + port)
 })
-
+//date =  new Date('April 15, 2020 ')
+//console.log(date.toUTCString() )
 //console.log('ClinicalTrials RESTful API server started on: ' + port);

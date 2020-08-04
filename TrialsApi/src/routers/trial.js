@@ -63,17 +63,38 @@ router.get('/trials/search', async (req,res) => {
 })
 */
 
-
-//URL: localhost:3000/trials/search2/?country=United States&condition=Cancer
-router.get('/trials/search2', async (req,res) => {
+// Model.find() returns an instance of the Query class.
+//URL: localhost:3001/trials/search2/?country=United States&condition=Cancer
+router.get('/trials/search2/:country/:condition', async (req,res) => {
+  const country = req.params.country
+  const condition = req.params.condition
   try {
-    const trial = await Trial.find({'country.country': req.query.country , 'condition.cond_name': req.query.condition},'enrollment  study_first_submitted last_update_submitted')
+    const trial = await Trial.find({'country.country': country , 'condition.cond_name': condition},'enrollment  study_first_submitted last_update_submitted -_id')
     if(!trial) {
       return res.status(404).send()
     }
-    res.send(trial)
+    let enrollmentSum = 0, meanTime = 0
+    //console.log(trial.length)
+    for (var i of trial){
+      if(i.enrollment){
+        enrollmentSum += i.enrollment
+      }
+      const start = new Date(i.study_first_submitted)
+      const end = new Date(i.last_update_submitted)
+      const diffTime = end - start
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+      //console.log(diffDays + " days")
+      meanTime += diffDays
+      //console.log(i.enrollment)        
+    }
+    //console.log(enrollmentSum)
+    //const trial = await Trial.find({'country.country': req.query.country , 'condition.cond_name': req.query.condition},'enrollment  study_first_submitted last_update_submitted -_id')
+    //res.send(trial)
+    meanTime = meanTime / trial.length //in days
+    res.send({'EnrollSum':enrollmentSum ,'MeanTime': meanTime }) //send response(return json data) using express
   } catch (e) {
     res.status(500).send()
   }
 })
+
 module.exports = router;
