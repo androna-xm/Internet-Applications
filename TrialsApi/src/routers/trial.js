@@ -51,21 +51,23 @@ router.get('/trials/country/:country', async (req,res) => {
 })
 
 //endpoint to seach trials by country and condition
-
-/*
-router.get('/trials/search', async (req,res) => {
+router.get('/trials/test', async (req,res) => {
   try {
-    const trial = await Trial.findbyParams (req.body.country,req.body.condition) //new method findbyParams
+    console.log(req.get("origin"))
+    const trial = await Trial.find({'country.country': 'United States', 'condition.cond_name': "Cancer"})
+    if(!trial) {
+      return res.status(404).send()
+    }
     res.send(trial)
-  }catch (e) {
-    res.status(400).send()
+  } catch (e) {
+    res.status(500).send()
   }
 })
-*/
+
 
 // Model.find() returns an instance of the Query class.
 //URL: localhost:3001/trials/search2/?country=United States&condition=Cancer
-router.get('/trials/search2/:country/:condition', async (req,res) => {
+router.get('/trials/search/:country/:condition', async (req,res) => {
   const country = req.params.country
   const condition = req.params.condition
   try {
