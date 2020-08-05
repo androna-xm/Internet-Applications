@@ -2,7 +2,7 @@ const express = require('express')
 require('./db/mongoose')
 const Trial = require('./models/trial')
 const trialRouter = require('./routers/trial')
-//var cors = require("cors")
+
 
 const app = express()
 const port = process.env.PORT || 3001
@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 });
 app.use(express.json()) //parse incomming json to an object  to easily use it and access request handlers
 app.use(trialRouter)   //register the router with our app 
-//app.use(cors())
+
 
 //creating a route: when we receive an http request post , we handle it 
 //with the post we are sending JSON type data to the express server
@@ -23,6 +23,3 @@ app.use(trialRouter)   //register the router with our app
 app.listen(port, () => {
   console.log('Server is up on port ' + port)
 })
-//date =  new Date('April 15, 2020 ')
-//console.log(date.toUTCString() )
-//console.log('ClinicalTrials RESTful API server started on: ' + port);

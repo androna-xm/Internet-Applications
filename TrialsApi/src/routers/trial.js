@@ -38,6 +38,7 @@ router.get('/trials/condition/:cond', async (req,res) => {
 
 
 router.get('/trials/country/:country', async (req,res) => {
+  console.log(req.get("origin"))
   const country = req.params.country
   try {
     const trial = await Trial.find({'country.country': country})
