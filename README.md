@@ -20,11 +20,15 @@ To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της
 1. Λήψη ως XML αρχεία τα δέδομενα κλινικών δοκιμών από το  https://clinicaltrials.gov/
 
 2. Κάνουμε clone το project στον υπολογιστή μας : 
+   ```bash
    git clone https://github.com/androna-xm/Internet-Applications.git
+   ```
    
 3. Αποθηκεύουμε τα XML-αρχεία μέσα στο φάκελο Internet-APliations του project σε νέο φάκελο με όνομα ClinicalTrials_data.
 
 4. Για να εισάγουμε τα δεδομένα (XML αρχεία ) στη mongodb βάση μας σε μορφή json εκτελούμε το python αρχείο input_db.py μέσα στον φάκελο Internet-Applications του project.
+   ```bash
    cd Internet-Applications
    python input_db.py
+   ```
    Έτσι δημιουργείται στη MongoDB η βάση 'ClinicalTrials_db' με το collection 'ClinicalTrialData' που περιέχει τα δεδομένα. 
