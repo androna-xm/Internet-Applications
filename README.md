@@ -16,7 +16,7 @@
 ### Frontend 
 To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της Javascript**
 
-# Οδηγίες εγκατάστασης και εκτέλεσης 
+# Οδηγίες εγκατάστασης και εκτέλεσης σε Windows 10 
 1. Λήψη ως XML αρχεία τα δέδομενα κλινικών δοκιμών από το  https://clinicaltrials.gov/
 
 2. Κάνουμε clone το project στον υπολογιστή μας : 
@@ -32,3 +32,22 @@ To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της
    python input_db.py
    ```
    Έτσι δημιουργείται στη MongoDB η βάση 'ClinicalTrials_db' με το collection 'ClinicalTrialData' που περιέχει τα δεδομένα. 
+   
+5. Για να τρέξει το backend  μεταβαίνουμε στο φάκελο TrialsApi
+   ```bash 
+   cd TrialsApi
+   ```
+   Εγκατάσταση node.js και npm από το ακόλουθο link: https://nodejs.org/en/download/
+   Εγκατάσταση απαραίτητων βιβλιοθηκών 
+   - mongoose για επικοινωνία με τη βάση
+   ```bash 
+   npm i mongoose
+   ```
+   - express για REST API 
+   ```bash
+   npm i express
+   ```
+   - nodemon για αυτόματη επανεκκίνηση του node application
+   ```bash
+   npm install --save-dev nodemon
+   ```
