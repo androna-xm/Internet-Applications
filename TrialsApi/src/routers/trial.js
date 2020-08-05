@@ -67,7 +67,7 @@ router.get('/trials/test', async (req,res) => {
 
 
 // Model.find() returns an instance of the Query class.
-//URL: localhost:3001/trials/search2/?country=United States&condition=Cancer
+//URL: localhost:3001/trials/search/United States/Cancer
 router.get('/trials/search/:country/:condition', async (req,res) => {
   const country = req.params.country
   const condition = req.params.condition

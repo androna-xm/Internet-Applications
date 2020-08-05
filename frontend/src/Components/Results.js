@@ -5,12 +5,42 @@ class Results extends Component {
         (console.log("here",this.props.results))
     }
     render(){
+        let enrollsum = this.props.results.EnrollSum;
+        let meantime = Math.round(this.props.results.MeanTime);
+        let years = Math.round(meantime/365);
+        let months = Math.round((meantime % 365) / 30);
+        let days = Math.round((meantime % 365) % 30);
+        function formatNumber(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+          }
         return <div>
-            <h4>Results</h4>
-            <h1>Total Enrollment : {this.props.results.EnrollSum}  people</h1>
-            <h1>Mean Number of days : {this.props.results.MeanTime} </h1>
-            
-            </div>;
+            <div className="row education">
+            <div className="three columns header-col">
+                <h1><span>Results</span></h1>
+            </div>
+            <div className="nine columns main-col">
+            <div className="row item">
+            <div className="twelve columns"> 
+            <table>
+            <tbody >
+            <tr>
+            <td >
+            <br/>
+            <h1>Total Enrollment : {enrollsum}  people</h1>
+            <br/>
+            <h1> Year(s) : {years}</h1>
+            <h1> Month(s) : {months}</h1>
+            <h1> Day(s) : {days}</h1>
+            </td>
+            </tr>
+            </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        
     }
 }
 
