@@ -32,22 +32,22 @@ To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της
    python input_db.py
    ```
    Έτσι δημιουργείται στη MongoDB η βάση 'ClinicalTrials_db' με το collection 'ClinicalTrialData' που περιέχει τα δεδομένα. 
+
+5. Εγκατάσταση node.js και npm από το ακόλουθο link: https://nodejs.org/en/download/
    
-5. Για να τρέξει το backend  μεταβαίνουμε στο φάκελο TrialsApi
+6. Για να τρέξει το backend  μεταβαίνουμε στο φάκελο TrialsApi
    ```bash 
-   cd TrialsApi
+   cd Internet-Applications/TrialsApi
    ```
-   Εγκατάσταση node.js και npm από το ακόλουθο link: https://nodejs.org/en/download/
-   Εγκατάσταση απαραίτητων βιβλιοθηκών 
-   - mongoose για επικοινωνία με τη βάση
+   
+   ```bash
+   npm i
+   npm run dev
+   ```
+7. Για τo frontend μεταβαίνουμε στο φάκελο frontend 
    ```bash 
-   npm i mongoose
+   cd Internet-Applications/frontend
    ```
-   - express για REST API 
    ```bash
-   npm i express
-   ```
-   - nodemon για αυτόματη επανεκκίνηση του node application
-   ```bash
-   npm install --save-dev nodemon
+   npm start
    ```
