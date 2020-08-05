@@ -10,9 +10,6 @@ class Results extends Component {
         let years = Math.round(meantime/365);
         let months = Math.round((meantime % 365) / 30);
         let days = Math.round((meantime % 365) % 30);
-        function formatNumber(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-          }
         return <div>
             <div className="row education">
             <div className="three columns header-col">
@@ -26,7 +23,7 @@ class Results extends Component {
             <tr>
             <td >
             <br/>
-            <h1>Total Enrollment : {enrollsum}  people</h1>
+            <h1>Total Enrollment : {enrollsum.toLocaleString('en-US')} people</h1>
             <br/>
             <h1> Year(s) : {years}</h1>
             <h1> Month(s) : {months}</h1>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Results from './Results';
 
+
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -34,8 +35,12 @@ class Search extends Component {
   }
   handleSubmit (event){
     event.preventDefault();
-    this.getData()
+    if(this.state.country.length !== 0 && this.state.condition.length !== 0 )
+      this.getData()
+    else
+      alert("Both fields required!")
   }
+
   render() {
     return (
       <section id="search" >
@@ -55,10 +60,10 @@ class Search extends Component {
                             <h4 style={{marginLeft:190}}>Condition</h4>
                             <input  type='text' name='condition' value = {this.state.condition} placeholder = "Type a condition..." onChange = {this.handleChange }/>
                             <h4 style={{marginLeft:180}}>Country</h4>
-                            <input  type='text' name='country' value = {this.state.country} placeholder = "Type a country..." onChange = {this.handleChange}/>  
+                            <input   type='text' name='country' value = {this.state.country} placeholder = "Type a country..." onChange = {this.handleChange}/>  
                           <br/>
                           <div style={{marginLeft:200}}>
-                          <input type="submit" value="Submit" />
+                          <input type="submit" value="Submit"  />
                           </div>
                         </td>
                       </tr>
@@ -69,33 +74,6 @@ class Search extends Component {
             </div>
          </div>
       </div>
-
-      {/*<form onSubmit = {this.handleSubmit}>
-        <h1>Search Trial</h1>
-        <h3>Enter a country:</h3>
-        <input
-          type='text'
-          name='country'
-          value = {this.state.country}
-          placeholder = "Type a country..."
-          onChange = {this.handleChange}
-         
-        />
-        <h3>Enter a condition:</h3>
-        <input
-          type='text'
-          name='condition'
-          value = {this.state.condition}
-          placeholder = "Type a condition..."
-          onChange = {this.handleChange }
-        />
-        <br/>
-        <br/>
-        <input 
-          type='submit'
-          value="Submit" />
-        </form>
-    */}
         <div id="res" > </div>
         </section>
     );
