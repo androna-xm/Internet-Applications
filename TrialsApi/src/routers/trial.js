@@ -3,17 +3,6 @@ const Trial = require('../models/trial')
 const { request } = require('express')
 const router = new express.Router()
 
-
-/*
-router.get('/ClinicalTrialData',async (req,res) =>{
-  try{
-    const trials = await Trial.find();
-    res.json(trials);
-  } 
-  catch(err){
-    res.json({message:err});
-  }
-})*/
 router.get('/trials', async (req,res) => {
   try{
     const Data = await Trial.find({}) // bring everything
@@ -99,5 +88,10 @@ router.get('/trials/search/:country/:condition', async (req,res) => {
     res.status(500).send()
   }
 })
+
+//creating a route: when we receive an http request post , we handle it 
+//with the post we are sending JSON type data to the express server
+// routes are in trialRouter file 
+
 
 module.exports = router;

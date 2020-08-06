@@ -30,18 +30,6 @@ const trialSchema = new  mongoose.Schema({
 })
 
 
-/*
-//create a new function findbyParams
-trialSchema.statics.findbyParams = async (country,condition) => {
-  const trial = await Trial.find({'country.country': country} , {'condition.cond_name': condition})
-  //const trial = await Trial.find({country : { $elemMatch : { country: country}}, condition : { $elemMatch : { cond_name :condition }}})
-  if(!trial) {
-    throw new Error('No clinical trials found!')
-  }
-  return trial
-} 
-*/
-
 const Trial = mongoose.model('Trial', trialSchema,'ClinicalTrialData')
 //create a model that follows this schema. Model's name is 'Trial'
 
