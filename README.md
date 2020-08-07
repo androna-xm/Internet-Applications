@@ -52,4 +52,7 @@ To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της
    npm i
    npm start
    ```
-https://youtu.be/xpSGR42A-9c
+# Βίντεο με παρουσίαση της εφαρμογής και των τεχνολογιών της
+   ```bash
+   https://youtu.be/xpSGR42A-9c
+   ```
