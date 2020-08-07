@@ -5,9 +5,6 @@ import Search from './Components/Search';
 
 
 class App extends Component {
-
-  
-
   render() {
     return (
       <div className="App">
