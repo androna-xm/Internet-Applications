@@ -49,5 +49,6 @@ To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της
    cd Internet-Applications/frontend
    ```
    ```bash
+   npm i
    npm start
    ```
