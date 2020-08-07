@@ -24,7 +24,7 @@ To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της
    git clone https://github.com/androna-xm/Internet-Applications.git
    ```
    
-3. Αποθηκεύουμε τα XML-αρχεία μέσα στο φάκελο Internet-APliations του project σε νέο φάκελο με όνομα ClinicalTrials_data.
+3. Αποθηκεύουμε τα XML-αρχεία μέσα στο φάκελο Internet-Applications του project σε νέο φάκελο με όνομα ClinicalTrials_data.
 
 4. Για να εισάγουμε τα δεδομένα (XML αρχεία ) στη mongodb βάση μας σε μορφή json εκτελούμε το python αρχείο input_db.py μέσα στον φάκελο Internet-Applications του project.
    ```bash
@@ -52,3 +52,4 @@ To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της
    npm i
    npm start
    ```
+https://youtu.be/xpSGR42A-9c
