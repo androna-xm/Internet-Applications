@@ -12,7 +12,7 @@
 ### Βάση Δεδομένων
 Τα δεδομένα από τα XML αρχεία  αποθηκεύτηκαν σε βάση δεδομένων **MongoDB** , αφού πρώτα μετατράπηκαν σε json αρχεία , με πρόγραμμα που αναπτύχθηκε σε python.
 ### Backend
-Το backend υλοποιήθηκε με **node.js**.Χρησιμοποιήθηκε **mongoose**(npm module-MongoDB object modeling tool ) για την επικοινωνία με τη βάση δεδομένων. Για to REST API χρησιμοποιήθηκε το web framework της Node, **"Express"** . H δοκιμή της λειτουργικότητας του API έγινε με  την εφαρμογή Postman , με την αποστολή hhtp requests στον server. 
+Το backend υλοποιήθηκε με **node.js**.Χρησιμοποιήθηκε **mongoose**(npm module-MongoDB object modeling tool ) για την επικοινωνία με τη βάση δεδομένων. Για τo REST API χρησιμοποιήθηκε το web framework της Node, **"Express"** . H δοκιμή της λειτουργικότητας του API έγινε με  την εφαρμογή Postman , με την αποστολή hhtp requests στον server. 
 ### Frontend 
 To frontend αναπτύχθηκε με τη βιβλιοθήκη **React της Javascript**
 
